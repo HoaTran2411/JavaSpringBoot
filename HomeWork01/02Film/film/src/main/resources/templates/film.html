@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Movie</title>
+</head>
+<body>
+    <h1>Top Movies</h1>
+    <ul th:each = "film : ${films}">
+        <li th:text = "|&quot;${film.title}&quot; : &quot;${film.director}&quot; : &quot;${film.publishingYear}&quot;|"></li>
+    </ul>
+</body>
+</html>
