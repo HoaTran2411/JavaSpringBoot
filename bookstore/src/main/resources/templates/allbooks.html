@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Store</title>
+  <style>
+    * {
+      margin: 0;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      margin-top: 30px;
+      margin-left: 30px;
+      background-color: rgb(182, 250, 226);
+      padding: 25px;
+      width: fit-content;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      color: darkblue;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-block: 0;
+      padding-inline: 0;
+    }
+
+    li {
+      list-style: none;
+      padding-top: 10px;
+      font-style: italic;
+    }
+  </style>
 </head>
+
 <body>
-  <ul>
-    <li th:each="book: ${books}">
-      <strong th:text="${book.title}"></strong><br>
-      <p th:text="${book.description}"></p>
-    </li>
-  </ul>
+  <div class="container">
+    <h1>List Books:</h1>
+    <ul th:each="book: ${books}">
+      <li th:text="${book.toString}"></li>
+    </ul>
+  </div>
 </body>
+
 </html>

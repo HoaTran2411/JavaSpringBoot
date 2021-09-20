@@ -1,6 +1,8 @@
 package vn.techmaster.bookstore.controller;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +23,7 @@ import vn.techmaster.bookstore.repository.BookDao;
 
 public class RESTController {
 
-    BookDao bookDao = new BookDao();
+    @Autowired private BookDao bookDao;
 
     @GetMapping("/books")
     public ResponseEntity<List<Book>> listBooks() {
@@ -31,7 +33,6 @@ public class RESTController {
     // Xem chi tiết một đầu sách theo id
     @GetMapping("/id")
     public ResponseEntity<Optional<Book>> getBookById(@RequestParam(value = "id") int id) {
-        BookDao bookDao = new BookDao();
         return ResponseEntity.ok().body(bookDao.get(id));
     }
 

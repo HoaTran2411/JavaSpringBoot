@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book by ID</title>
+    <style th:fragment = "styleCont">
+         * {
+      margin: 0;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      margin-top: 30px;
+      margin-left: 30px;
+      background-color: rgb(182, 250, 226);
+      padding: 25px;
+      width: fit-content;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      color: darkblue;
+    }
+    </style>
+</head>
+<body>   
+    <div class = "container">
+        <p th:text = "${book}"></p>
+    </div>
+</body>
+</html>

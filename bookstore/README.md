@@ -1,3 +1,111 @@
+## Hiển thị bằng Thymeleaf 
+### Bước 1: Ở thư mục `controller` tạo file `BookController.java`
+Ở đây, tạo ra các method return file HTML:
+```java
+@Controller
+public class BookController {
+  @Autowired
+  private BookDao bookDao;
+
+  // Trang chủ
+  @GetMapping("/")
+  public String home(Model model) {
+    return "home";
+  }
+
+  // get all books
+  @GetMapping("/books")
+  public String listAll(Model model) {
+    model.addAttribute("books", bookDao.getAll());
+    return "allbooks";
+  }
+
+  // Xem chi tiết một đầu sách theo id
+  @GetMapping("/book/{id}")
+  public String getBookByID(@PathVariable int id, Model model) {
+    model.addAttribute("book", bookDao.get(id).get().toString());
+    return "bookById";
+  }
+
+  // Thêm mới một đầu sách
+  @GetMapping("/addBooks/{id}/{title}/{description}")
+  public String addBook(@PathVariable int id, @PathVariable String title, @PathVariable String description,
+      Model model) {
+    bookDao.add(new Book(id, title, description));
+    model.addAttribute("books", bookDao.getAll());
+    return "allbooks";
+  }
+
+  // Cập nhật một đầu sách theo id
+  @GetMapping("/updateBooks/{id}/{title}/{description}")
+  public String updateBookById(@PathVariable int id, @PathVariable String title, @PathVariable String description,
+      Model model) {
+    bookDao.update(id, new Book(id, title, description));
+    model.addAttribute("books", bookDao.getAll());
+    return "allbooks";
+  }
+
+  // Xóa một đầu sách theo id
+  @GetMapping("/deleteBooks/{id}")
+  public String deleteBookById(@PathVariable int id, Model model) {
+    bookDao.deleteByID(id);
+    model.addAttribute("books", bookDao.getAll());
+    return "allbooks";
+  }
+```
+### Bước 2: Ở thư mục `templates` tạo ra các file HTML
+Các file HTML này có tên tương ứng với các String kết quả của method ở file java `BookController`: 
++ Code phần body `home.html`:
+```html
+<body>
+    <div class="container">
+        <h2>Wellcome to My BookStore!</h2>
+        <a th:href="@{/books}">Xem listBooks</a>
+    </div>
+</body>
+```
++ Code phần body `allBook.html`
+```html
+<body>
+  <div class="container">
+    <h1>List Books:</h1>
+    <ul th:each="book: ${books}">
+      <li th:text="${book.toString}"></li>
+    </ul>
+  </div>
+</body>
+```
++ Code phần body `bookById`
+```html
+<body>   
+    <div class = "container">
+        <p th:text = "${book}"></p>
+    </div>
+</body>
+```
+
+### Bước 3: Test kết quả trên web
++ Trang chủ
+![](images/htmlHome.PNG)
+
++ ListBooks ban đầu:
+![](images/htmlBooks.PNG)
+
++ Xem chi tiết một đầu sách theo id
+![](images/htmlId.PNG)
+
++ Thêm mới một đầu sách
+Gõ đường link `http://localhost:8082/addBooks/4/Neu con co ngay mai/Tieu thuyet hay` , kết quả:
+![](images/htmlAddBook.PNG)
+
++ Cập nhật một đầu sách theo id
+Gõ đường linh `http://localhost:8082/updateBooks/1/Update khong gia dinh/Đã bán hết ` , kết quả:
+![](images/htmlUpdateBook.PNG)
+
++ Xóa một đầu sách theo id
+![](images/htmlDeleteBook.PNG)
+
+
 ## RESTFUL API
 ### 1. Tạo các medthod trong `BookDao.java`
 ```java
@@ -111,3 +219,7 @@ public class RESTController {
 
 3.5. Xóa một đầu sách theo id
 ![](images/bookAfterDelete.PNG)
+
+
+
+
