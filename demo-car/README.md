@@ -33,4 +33,4 @@ Nhập thử chữ `a`, kết quả sẽ hiện ra:
 ![image](imagesReadme/searchResult.PNG)
 
 2.6. Quay lại trang chủ, chọn `sắp xếp theo price`, sản phẩm sẽ được sắp xếp lại theo price từ thấp đến cao:
-![image](imagesReadme/resultPrice.PNG)
+![image](imagesReadme/sort.PNG)
