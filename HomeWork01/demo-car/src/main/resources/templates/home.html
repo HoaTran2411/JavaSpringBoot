@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:fragment="head-html(title)">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style>
+        .navbar {
+            padding-left: 10%;
+            background-color: rgb(26, 148, 255) !important;
+            box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+            width: 100%;
+            font-size: 17px;
+        }
+
+        .nav-item {
+            padding-left: 30px;
+        }
+        
+        .nav-link {
+            color: white;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 350px !important;
+            margin-right: 1px !important;
+        }
+
+        .btn-primary {
+            background-color: rgb(18, 18, 219) !important;
+        }
+
+        /* xử lý table */
+        #image {
+            height: 200px;
+        }
+
+        #image img {
+            height: 100%;
+        }
+
+        .table {
+            margin-left: 10%;
+        }
+
+        #list-header {
+            color: rgb(26, 148, 255);
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-light" th:fragment="header">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="/cars"><i class="fas fa-home"></i> Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cars/add"><i class="fas fa-plus"></i> Thêm mới</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cars/sort"><i class="fas fa-sort"></i></i> Sắp xếp theo Price</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/cars/search"><i class="fas fa-search"></i> Tìm kiếm</a></li>
+        </ul>
+    </nav>
+    <div id="heading">
+
+    </div>
+    <table class="table table-striped" id="users" style="width: 85%;" th:fragment="table">
+        <thead>
+            <tr id="list-header">
+                <th></th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Price</th>
+                <th>Sales</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="car : ${cars}">
+                <td>
+                    <div id="image"><img th:src="${car.image}" alt="ảnh xe ô tô"></div>
+                </td>
+                <td th:text="${car.manufacturer}"></td>
+                <td th:text="${car.model}"></td>
+                <td th:text="${car.price}"></td>
+                <td th:text="${car.sales}"></td>
+                <td><a th:href="@{|/cars/${car.id}|}">Xem chi tiết</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

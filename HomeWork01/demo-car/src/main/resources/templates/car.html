@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert = "home.html :: head-html('Detail Car')">
+</head>
+<body>
+    <nav th:insert = "home.html :: header"></nav>
+    <table class="table table-striped" id="users" style="width: 90%;">
+        <thead>
+            <tr id="list-header">
+                <th></th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Price</th>
+                <th>Sales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div id="image"><img th:src="${car.image}" alt="ảnh xe ô tô"></div>
+                </td>
+                <td th:text="${car.manufacturer}"></td>
+                <td th:text="${car.model}"></td>
+                <td th:text="${car.price}"></td>
+                <td th:text="${car.sales}"></td>
+                <td><a th:href="@{|/cars/update/${car.id}|}">Edit car</a></td>
+                <td><a th:href="@{|/cars/remove/${car.id}|}">Delete car</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

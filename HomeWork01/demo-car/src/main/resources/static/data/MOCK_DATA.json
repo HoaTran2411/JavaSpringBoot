@@ -1,0 +1,3 @@
+[{"id":1,"manufacturer":"Chevrolet","model":"Express","price":10221,"sales":19977,"image":"../images/suv.png"},
+{"id":2,"manufacturer":"Land Rover","model":"Defender","price":11906,"sales":19705,"image":"../images/toyota.png"},
+{"id":3,"manufacturer":"Subaru","model":"Impreza","price":13438,"sales":18305,"image":"../images/vinfast.png"}]
