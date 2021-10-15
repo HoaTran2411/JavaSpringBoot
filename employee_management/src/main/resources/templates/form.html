@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Form</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            font-size: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            height: 100vh;
+        }
+
+        .nav-bar {
+            display: flex;
+            margin-bottom: 50px;
+            width: 100%;
+            background-color: #ee4d2d;
+            height: 60px;
+            align-items: center;
+            padding-left: 10%;
+        }
+
+        .nav-bar-item {
+            padding-right: 50px;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .table-list {
+            padding: 20px 10% 40px 10%;
+        }
+
+        input {
+            width: 350px;
+            padding-left: 10px;
+        }
+
+        button {
+            width: 75px;
+            background-color: #850919;
+            color: white;
+        }
+
+        button,
+        input {
+            height: 30px;
+            border-radius: 5px;
+            border: solid 1px;
+            border-color: rgb(153, 151, 151);
+        }
+
+        button:hover {
+            background-color: rgb(130, 130, 243);
+        }
+
+        h2 {
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            color: #d0011b;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .nav-bar-item>a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="nav-bar-item"><a th:href="@{/}"><i class="fas fa-home"> Home</i></a></div>
+        </div>
+        <div class="table-list">
+            <h2 th:text="${title}"></h2>
+            <form th:object="${employee}" method="post" th:action="@{/save}">
+                <input type="hidden" th:field="*{id}">
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstName" id="firstName" th:field="*{firstName}">
+                <br /><br />
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lastName" id="lastName" th:field="*{lastName}">
+                <br /><br />
+                <label for="emailId">Email:</label>
+                <input type="text" name="emailId" id="emailId" th:field="*{emailId}">
+                <br /><br />
+                <label for="passportNumber">Passport Number:</label>
+                <input type="text" name="passportNumber" id="passportNumber" th:field="*{passportNumber}">
+                <br /><br />
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            font-size: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            height: 100vh;
+        }
+
+        .nav-bar {
+            display: flex;
+            margin-bottom: 50px;
+            width: 100%;
+            background-color: #ee4d2d;
+            height: 60px;
+            align-items: center;
+            padding-left: 10%;
+        }
+
+        .nav-bar-item {
+            padding-right: 50px;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .table-list {
+            padding: 20px 10% 40px 10%;
+            text-align: center;
+            min-width: fit-content;
+        }
+
+        h2,
+        th {
+            text-transform: uppercase;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid rgb(167, 165, 165);
+        }
+
+        table {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        th {
+            padding: 10px;
+            background-color: #f38671;
+            color: white;
+        }
+
+        td {
+            color: rgb(66, 65, 65);
+        }
+
+        h2 {
+            color: #d0011b;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        input {
+            width: 250px;
+            padding-left: 10px;
+        }
+
+        button {
+            width: 75px;
+            background-color: #850919;
+            color: white;
+        }
+
+        button,
+        input {
+            height: 30px;
+            border-radius: 5px;
+            border: solid 1px;
+            border-color: rgb(153, 151, 151);
+        }
+
+        button:hover {
+            background-color: rgb(130, 130, 243);
+        }
+
+        .nav-bar-item>a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="nav-bar-item"><a th:href="@{/}"><i class="fas fa-home"> Home</i></a></div>
+            <div class="nav-bar-item"><a th:href="@{/add}"><i class="fas fa-user-plus"> Add new Employee</i></a></div>
+            <div class="nav-bar-item">
+                <form th:action="@{/search}" method="post">
+                    <input type="text" placeholder="Search by FullName or Email" th:field="${request.keyword}">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="table-list">
+            <h2>Employee List</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Passport Number</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr th:each="employee,iStatic : ${employees}">
+                    <td th:text="${iStatic.index} + 1"></td>
+                    <td th:text="${employee.firstName}"></td>
+                    <td th:text="${employee.lastName}"></td>
+                    <td th:text="${employee.getFullName}"></td>
+                    <td th:text="${employee.emailId}"></td>
+                    <td th:text="${employee.passportNumber}"></td>
+                    <td><a th:href="@{/update/{id}(id=${employee.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${employee.id})}">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
