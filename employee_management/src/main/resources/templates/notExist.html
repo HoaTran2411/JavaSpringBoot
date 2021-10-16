@@ -1,80 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{base-layout}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <title>Employee</title>
-    <style>
-        * {
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        .container {
-            font-size: 15px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            height: 100vh;
-        }
-
-        .nav-bar {
-            display: flex;
-            margin-bottom: 50px;
-            width: 100%;
-            background-color: #ee4d2d;
-            height: 60px;
-            align-items: center;
-            padding-left: 10%;
-        }
-
-        .nav-bar-item {
-            padding-right: 50px;
-            font-size: 16px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .table-list {
-            padding: 20px 10% 40px 10%;
-            text-align: center;
-            min-width: fit-content;
-        }
-
-        a,
-        h2 {
-            text-decoration: none;
-            color: #d0011b;
-        }
-
-
-        a:hover {
-            color: red;
-        }
-
-        button {
-            width: 75px;
-            background-color: #850919;
-            color: white;
-        }
-
-        .nav-bar-item>a {
-            color: white;
-        }
-    </style>
+    <title>Employee not exist</title>
 </head>
 
 <body>
-    <div class=container>
-        <div class="nav-bar">
-            <div class="nav-bar-item"><a th:href="@{/}"><i class="fas fa-home"> Home</i></a></div>
-        </div>
-        <div class="table-list">
-            <h2>Not Exist Data</h2>
-        </div>
+    <div layout:fragment="content" class="container">
+        <h2>Does not exist Data</h2>
     </div>
-
 </body>
 
 </html>

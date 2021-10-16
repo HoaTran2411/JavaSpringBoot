@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+
+.navbar {
+  background-color: #ee4d2d !important;
+  color: white !important;
+  margin-bottom: 30px !important;
+  padding: 10px 10% 10px 10% !important;
+}
+
+.navbar-brand a {
+  color: white !important;
+  text-transform: uppercase;
+  font-size: 19px !important;
+}
+.navbar-brand span,
+.nav-item span,
+.table th {
+  font-family: "Courgette" !important;
+  padding-left: 5px;
+}
+
+.table th {
+  text-align: center !important;
+}
+
+.container {
+  min-width: fit-content !important;
+}
+
+#my-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+#my-nav a {
+  color: white !important;
+}
+
+.nav-item {
+  padding-left: 20px !important;
+}
+
+.form-control {
+  width: 400px !important;
+  margin-right: 1px !important;
+}
+
+.nav-item a {
+  font-size: 16px !important;
+}
+
+h2 {
+  font-family: "Courgette" !important ;
+  margin-bottom: 20px;
+  align-items: center !important;
+}
+
+.btn {
+  background-color: #ee4d2d !important;
+  border: none;
+  font-family: "Courgette" !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+}
+
+#btn-search {
+  background-color: #94230d !important;
+}
+
+.btn:hover {
+  opacity: 0.5 !important;
+}
