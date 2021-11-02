@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base-layout}">
+
+<head>
+    <title>Employee</title>
+</head>
+
+<body>
+<div layout:fragment="content" class="container">
+    <table class="table">
+        <tr th:insert="home.html :: heading-table">
+        </tr>
+        <tr>
+            <td scope="row"></td>
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.getFullName}"></td>
+            <td th:text="${employee.emailId}"></td>
+            <td th:text="${employee.passportNumber}"></td>
+            <td><a th:href="@{/update/{id}(id=${employee.id})}" class="btn btn-primary">Edit</a></td>
+            <td><a th:href="@{/delete/{id}(id=${employee.id})}" class="btn btn-primary">Delete</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>

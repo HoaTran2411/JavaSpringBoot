@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base-layout}">
+
+<head>
+    <title>Employee</title>
+</head>
+
+<body>
+<div layout:fragment="content" class="container">
+    <table class="table">
+        <tr th:fragment="heading-table">
+            <th scope="col">Avatar</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Passport Number</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        <tr>
+            <td>
+                <span th:if = "${employee.avatar} == null">
+                    <img src = "https://thelifetank.com/wp-content/uploads/2018/08/avatar-default-icon.png" alt="avatar" width="150px" height="150px"/>
+                </span>
+                <span th:unless = "${employee.avatar} == null">
+                    <img th:src="|data:image/png;base64,${employee.base64Img}|" alt="avatar" width="150px" height="150px"/>
+                </span>
+                
+            </td>
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.getFullName}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.passportNumber}"></td>
+            <td><a th:href="@{/update/{id}(id=${employee.id})}" class="btn btn-primary">Edit</a></td>
+            <td><a th:href="@{/delete/{id}(id=${employee.id})}" class="btn btn-primary">Delete</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>

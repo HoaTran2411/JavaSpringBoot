@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE"></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+<!-- Main Navigation -->
+<nav class="navbar narbar-expand-md narbar-light bg-light sticky-top">
+    <div class="navbar-brand"><a th:href="@{/}"><i class="fas fa-home"><span>Home</span></i></a></div>
+    <!-- Optional Section -->
+    <th:block layout:fragment="optional"/>
+</nav>
+<section layout:fragment="content"></section>
+</body>
+
+</html>

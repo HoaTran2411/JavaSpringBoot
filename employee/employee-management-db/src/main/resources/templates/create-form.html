@@ -1,0 +1,56 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{base-layout}">
+
+<head>
+    <title>Form</title>
+</head>
+
+<body>
+    <div layout:fragment="content" class="container">
+        <h2>Create new employee</h2>
+        <form th:object="${employee}" method="post" th:action="@{/save}" class="form-group"
+            enctype="multipart/form-data">
+
+            <div class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                FirstName Error
+            </div>
+            <div class="input-control-myself">
+                <input type="text" class="form-control" id="firstName" autocomplete="off" th:field="*{firstName}"
+                    placeholder="Enter First Name:" />
+            </div>
+            <div class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                Last Name Error
+            </div>
+            <div class="input-control-myself">
+                <input type="text" class="form-control" id="lastName" autocomplete="off" th:field="*{lastName}"
+                    placeholder="Enter Last Name:" />
+            </div>
+            <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                Email Error
+            </div>
+            <div class="input-control-myself">
+                <input type="text" class="form-control" id="email" autocomplete="off" th:field="*{email}"
+                    placeholder="Enter Email:" />
+            </div>
+            <div class="text-danger" th:if="${#fields.hasErrors('passportNumber')}" th:errors="*{passportNumber}">
+                Passport Number Error
+            </div>
+            <div class="input-control-myself">
+                <input type="text" class="form-control" id="passportNumber" autocomplete="off"
+                    th:field="*{passportNumber}" placeholder="Enter Passport Number:" />
+            </div>
+            <div class="text-danger" th:if="${#fields.hasErrors('avatarImg')}" th:errors="*{avatarImg}">Upload
+                Error
+            </div>
+            <div class="input-control-myself">
+                <lable for="avatarImg">Avatar:</lable>
+                <input type="file" class="form-control-file" th:field="*{avatarImg}" placeholder="Choose avatar" />
+            </div>
+
+            <button class="btn btn-primary mt-3" type="submit">Save</button>
+        </form>
+
+    </div>
+</body>
+
+</html>
