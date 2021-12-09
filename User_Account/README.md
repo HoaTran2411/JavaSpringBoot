@@ -1,6 +1,6 @@
-#Mô tả project
-##Màn hình
-###Màn hình Login:
+# Mô tả project
+## Màn hình
+### Màn hình Login:
 Gồm email và password. Email chính là NaturalID đó. Màn hình này có 2 link: tạo mới tài khoản (Create Account) và tìm lại mật khẩu (Get New Password). Nếu login thành công thì cần hiển thị thông tin:
 - Full Name
 - Email
